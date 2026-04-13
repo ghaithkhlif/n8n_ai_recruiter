@@ -1,0 +1,31 @@
+Agent de Recrutement IA Automatisé (n8n + Mistral AI)
+Ce projet est un workflow n8n complet qui automatise le tri et l'analyse des candidatures. Il utilise l'intelligence artificielle pour comparer des CV entrants avec une fiche de poste spécifique et enregistre les résultats dans un tableau de suivi.
+
+Fonctionnement
+Sources : Le workflow surveille une boîte Gmail (pièces jointes) et un dossier Google Drive.
+
+Contexte : Il récupère automatiquement une Fiche de Poste de référence sur Google Drive.
+
+Extraction : Le texte est extrait des PDF (CV et Fiche de poste).
+
+Analyse IA : Le modèle Mistral AI compare les compétences du candidat avec les exigences du poste.
+
+Structuration : Un Structured Output Parser transforme l'analyse en données propres (Nom, Note, Verdict).
+
+Stockage : Les données sont envoyées vers Google Sheets pour un suivi RH immédiat.
+
+Stack Technique
+n8n (Auto-hébergé / Localhost)
+
+Mistral AI (Modèle LLM pour l'analyse)
+
+Google Workspace (Gmail, Drive, Sheets)
+
+Installation
+Importer le fichier .json fourni dans votre instance n8n.
+
+Configurer vos credentials pour Google Console (OAuth2) et Mistral Cloud.
+
+Renseigner l'ID de votre fichier "Fiche de Poste" dans le nœud correspondant.
+
+Créer un Google Sheets avec les colonnes : Nom, Note, Points Forts, Points faibles, Verdict.
